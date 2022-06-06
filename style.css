@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body, html {
+    height: 100%;
+}
+
+html {
+    background-color: #000;
+}
+
+body {
+    background-image: linear-gradient(25deg, #585858 50%, 55%, #3B3B3B 50%);
+    background-repeat: no-repeat;
+    perspective: 1000px;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadein 3s forwards;
+}
+
+.scene {
+    height: 100%;
+    position: absolute;
+    transform: rotateZ(26deg) rotateY(357deg) rotateX(11deg);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateZ(26deg) rotateY(357deg) rotateX(11deg);
+}
+
+.app {
+    width: 320px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 550px;
+    border-radius: 0 0 30px 30px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.app .screen {
+    height: 165px;
+    background-image: linear-gradient(to left, #4a4949 65%, #222 30%);
+    position: relative;
+    transform: rotateX(6deg);
+    z-index: 2;
+}
+
+.app .screen input {
+    position: absolute;
+    right: 10px;
+    top: 40%;
+    text-align: end;
+    font-size: 50px;
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #858282;
+    padding-left: 5px;
+}
+
+.app .screen input:empty {
+    animation: blink 1s infinite forwards;
+}
+
+.app .shadow {
+    height: 165px;
+    width: 32px;
+    height: 100%;
+    background-color: #111;
+    position: absolute;
+    right: -16%;
+    top: 20px;
+    z-index: -1;
+    border-radius: 0 30px 30px 0;
+    /* transform: rotate(2deg); */
+}
+
+.lg1 {
+    width: 10px;
+    height: 100%;
+    background-color: #585858;
+    position: absolute;
+    top: 2px;
+    transform: translateX(-80%) skewX(0deg) skewY(348deg);
+    background-image: linear-gradient(to left, #222121, transparent);
+}
+
+.rg1 {
+    width: 10px;
+    height: 100%;
+    background-color: #4a4949;
+    position: absolute;
+    top: 2px;
+    right: 0;
+    transform: translateX(80%) skewX(0deg) skewY(-348deg);
+    background-image: linear-gradient(to left, #414040, #4a4949);
+}
+
+.lg2 {
+    width: 10px;
+    height: 100%;
+    background-color: #4c4c4c;
+    position: absolute;
+    top: 3px;
+    transform: translateX(-110%) skewX(0deg) skewY(334deg);
+    background-image: linear-gradient(to left, #323232, transparent);
+}
+
+.rg2 {
+    width: 15px;
+    height: 100%;
+    background-color: #4c4c4c;
+    position: absolute;
+    top: 4px;
+    right: 0;
+    transform: translateX(130%) skewX(0deg) skewY(16deg);
+    background-image: linear-gradient(to left, #535252, #414040);
+    border-top-right-radius: 10px;
+}
+
+.app .pad {
+    display: grid;
+    background-color: #3f3e3e;
+    grid-template-columns: repeat(4, 1fr);
+    border-radius: 0 0 30px 30px;
+    justify-items: center;
+    padding: 20px;
+    box-shadow: 0 0 10px 5px #2a2929 inset, 0 0 10px 5px #3c3c3c inset, -3px 3px 2px #2a2929, -3px 3px 10px 5px #2c2b2b, 0 0 3px 10px #2a2929, 3px 3px 5px 10px #201f1f, 6px 6px 5px 10px #201f1f, 8px 8px 3px 10px #201f1f, 13px 13px 2px 10px #121212, 35px 18px 0px 15px #121212;
+    position: relative;
+    z-index: 1;
+}
+
+.app .pad button {
+    width: 52px;
+    height: 52px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #3a3939;
+    color: #6b6a6a;
+    border: none;
+    font-size: 22px;
+    box-shadow: 2px 2px 3px 3px #111, 
+                3px 3px 10px 2px #3d3b3b inset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.app .pad button:last-child {
+    box-shadow: none;box-shadow: 2px 2px 3px 3px #28231f;
+    background-color: #916d50;
+    color: #c0bcbc;
+}
+
+.app .pad button:active {
+    box-shadow: 1px 1px 3px 1px #111;
+}
+
+.type-c {
+    background-color: #121212;
+    width: 45px;
+    height: 8px;
+    border-radius: 50px;
+    position: absolute;
+    bottom: -17px;
+    left: 50%;
+    z-index: 5;
+    transform: translate(-50%);
+}
+
+.type-c::after {
+    content: '';
+    width: 50%;
+    height: 2px;
+    background-color: #3e3d3d;
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+@keyframes blink {
+    from {
+        opacity: 0.5;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    to {
+        opacity: 1;
+    }
+}
