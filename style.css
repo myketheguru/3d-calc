@@ -96,7 +96,7 @@ body {
     height: 100%;
     background-color: #4a4949;
     position: absolute;
-    top: 2px;
+    top: 1px;
     right: 0;
     transform: translateX(80%) skewX(0deg) skewY(-348deg);
     background-image: linear-gradient(to left, #414040, #4a4949);
